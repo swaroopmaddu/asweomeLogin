@@ -1,6 +1,6 @@
 # asweomelogin
 
-A new Flutter project.
+A Beautiful login UI using flutter.
 
 ## Getting Started
 
