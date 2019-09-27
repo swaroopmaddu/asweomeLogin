@@ -40,7 +40,7 @@ class _MyLoginState extends State<MyLogin> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 25.0),
+              padding: EdgeInsets.only(top: 35.0),
               child: new Image(
                   width: 150.0,
                   height: 150.0,
