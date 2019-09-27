@@ -4,17 +4,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:asweomelogin/util/theme.dart' as Theme;
 
 
-
 Color active = Colors.white;
 Color inactive = Colors.black;
 
 PageController pageController = PageController();
 
-
 bool isnew = false;
+bool exist = true;
 
 bool _obscureTextLogin = true;
 bool _obscureTextSignup = true;
+
+@override
+void initState(){
+  
+}
 
 class MenuBar extends StatefulWidget {
   @override
@@ -41,7 +45,8 @@ class _MenuBarState extends State<MenuBar> {
               color: isnew ? Colors.transparent : Colors.white,
               onPressed: (){
                   setState(() {
-                    isnew = !isnew;
+                   exist = true;
+                   isnew = false;
                   });
                   pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.easeOut);
               },
@@ -63,7 +68,8 @@ class _MenuBarState extends State<MenuBar> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
               onPressed: (){
                  setState(() {
-                   isnew = !isnew;
+                    isnew = true;
+                    exist = false;
                  });
                  pageController.animateToPage(1, duration: Duration(seconds: 1), curve: Curves.easeOut);
               },
@@ -441,7 +447,7 @@ class _BuildSignUpState extends State<BuildSignUp> {
                                 });
                               },
                               child: Icon(
-                                _obscureTextLogin
+                                _obscureTextSignup
                                     ? FontAwesomeIcons.eye
                                     : FontAwesomeIcons.eyeSlash,
                                 size: 15.0,

@@ -4,9 +4,15 @@ import 'package:asweomelogin/util/theme.dart' as Theme;
 import 'package:flutter/services.dart';
 
 class MyLogin extends StatefulWidget {
+  final ValueNotifier<double> notifier;
+
+  const MyLogin({Key key, this.notifier}) : super(key: key);
+
   @override
   _MyLoginState createState() => _MyLoginState();
 }
+
+
 
 @override
   void initState() {
@@ -14,9 +20,12 @@ class MyLogin extends StatefulWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    pageController = PageController();
   }
 
+
+
+
+    
 class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
@@ -40,10 +49,10 @@ class _MyLoginState extends State<MyLogin> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 35.0),
+              padding: EdgeInsets.only(top: 75.0),
               child: new Image(
-                  width: 150.0,
-                  height: 150.0,
+                  width: 250.0,
+                  height: 250.0,
                   fit: BoxFit.fill,
                   image: new AssetImage('assets/logo.png'),
                 ),
@@ -56,6 +65,20 @@ class _MyLoginState extends State<MyLogin> {
               flex: 2,
               child: PageView(
                 controller: pageController,
+                onPageChanged: (pageid){
+                    if (pageid == 0) {
+                        setState(() {
+                          isnew =false;
+                          exist = true; 
+                        });
+                        }
+                        else{
+                          setState(() {
+                            isnew = true;
+                          exist = false;
+                          });
+                        }
+                },
                 children: <Widget>[
                           new ConstrainedBox(
                             constraints: const BoxConstraints.expand(),
