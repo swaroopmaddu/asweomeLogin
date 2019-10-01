@@ -1,6 +1,12 @@
-# asweomelogin
+# Asweomelogin
 
 A Beautiful login UI using flutter.
+
+## Demo
+
+<p align="center">
+  <img src="images/demo.gif" width="300" title="Asweome login using flutter">
+</p>
 
 ## Getting Started
 
